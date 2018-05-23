@@ -12,7 +12,10 @@ public class IntToEng {
 		Scanner sc = new Scanner(System.in);
 		int input = sc.nextInt();
 
-		System.out.println(translateEng(input));
+		if(input>10 && input<20) {
+			System.out.println(Ten(input));
+		}
+		else System.out.println(translateEng(input));
 	}
 
 	// 数値を英訳する変換するメソッド
@@ -20,22 +23,36 @@ public class IntToEng {
 		String num = "";
 
 		if (n / 1000000 > 0 && n / 1000000 < 1000) {
-			num += Handred(n / 100000) + " million ";
+			num += Hundred(n / 100000) + " million ";
 		}
 
 		if (n / 1000 > 0 && n / 1000 < 1000) {
-			num += Handred(n / 1000) + " thousand ";
+			num += Hundred(n / 1000) + " thousand ";
 		}
 
 		if (n % 1000 >= 0 && n % 1000 < 1000) {
-			num += Handred(n % 1000);
+			num += Hundred(n % 1000);
 		}
-
+		
 		return num;
 	}
 
-	// 一〜百の位を判別するメソッド
-	public static String Handred(int n) {
+	
+	//11~19を英訳するメソッド
+	public static String Ten(int n) {
+		
+		String num = "";
+		if (n/10 == 1) {
+			num = TeensPlace(n%10);
+		}
+		
+		return num;
+		
+	}
+	
+	
+	// 1~10,20~100の位を英訳するメソッド
+	public static String Hundred(int n) {
 
 		String num = "";
 
@@ -45,15 +62,17 @@ public class IntToEng {
 
 		if (H > 0 && H < 10) {
 			num += OnesPlace(H) + " hundred ";
-		}
+					}
+		
 		if (T > 1 && T < 10) {
 			num += TensPlace(T) + " ";
-		}
-		if (T == 1) {
-			num += TeensPlace(T);
-		}
-
+				}
+		
+		
 		num += OnesPlace(O);
+		
+
+		
 
 		return num;
 	}
