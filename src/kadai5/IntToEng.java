@@ -23,56 +23,63 @@ public class IntToEng {
 		String num = "";
 
 		if (n / 1000000 > 0 && n / 1000000 < 1000) {
-			num += Hundred(n / 100000) + " million ";
+			num += Hundred(n / 1000000) + " million ";
 		}
 
+
+		n = n % 1000000;
 		if (n / 1000 > 0 && n / 1000 < 1000) {
 			num += Hundred(n / 1000) + " thousand ";
 		}
 
-		if (n % 1000 >= 0 && n % 1000 < 1000) {
+		n = n % 1000;
+		if (n >= 0 && n < 1000) {
 			num += Hundred(n % 1000);
 		}
-		
+
 		return num;
 	}
 
-	
+
 	//11~19を英訳するメソッド
 	public static String Ten(int n) {
-		
+
 		String num = "";
 		if (n/10 == 1) {
 			num = TeensPlace(n%10);
 		}
-		
+
 		return num;
-		
+
 	}
-	
-	
+
+
 	// 1~10,20~100の位を英訳するメソッド
 	public static String Hundred(int n) {
 
 		String num = "";
 
 		int H = n / 100;
-		int T = n % 100 / 10;
+		int T = (n % 100) / 10;
 		int O = n % 10;
 
 		if (H > 0 && H < 10) {
 			num += OnesPlace(H) + " hundred ";
-					}
-		
+		}
+
+		if(T == 1) {
+			num += TeensPlace(O);
+			return num;
+		}
+
 		if (T > 1 && T < 10) {
 			num += TensPlace(T) + " ";
-				}
-		
-		
-		num += OnesPlace(O);
-		
+		}
 
-		
+		num += OnesPlace(O);
+
+
+
 
 		return num;
 	}

@@ -1,6 +1,6 @@
 package kadai5;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class kadai5Test {
 
-	
+
 	@Test
 	public void translateEngで5からfiveに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -23,7 +23,7 @@ public class kadai5Test {
 		String actual = ie.Ten(17);
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void translateEngで23からtwentythreeに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -38,7 +38,7 @@ public class kadai5Test {
 		String actual = ie.Hundred(23);
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void translateEngで125からonehandredtwentyfiveに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -46,7 +46,7 @@ public class kadai5Test {
 		String actual = ie.translateEng(125);
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void Hundredで123からonehundredtwentythreeに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -54,7 +54,7 @@ public class kadai5Test {
 		String actual = ie.Hundred(123);
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void translateEngで1256からonethousandtwohundredfiftysixに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -62,17 +62,17 @@ public class kadai5Test {
 		String actual = ie.translateEng(1256);
 		assertThat(actual, is(expected));
 	}
-	
-	/*
+
+
 	@Test
-	public void translateEngで12568からonemilliontwothousandfivehundredsixtyeightに変換できる(){
+	public void translateEngで14204568からonemilliontwothousandfivehundredsixtyeightに変換できる(){
 		IntToEng ie = new IntToEng();
-		String expected = "one million two thousand five hundred sixty eight";
-		String actual = ie.translateEng(12568);
+		String expected = "forteen million two hundred four thousand five hundred sixty eight";
+		String actual = ie.translateEng(14204568);
 		assertThat(actual, is(expected));
 	}
-	*/
-	
+
+
 	@Test
 	public void TeensPlaceで7からseventeenに変換できる(){
 		IntToEng ie = new IntToEng();
@@ -80,7 +80,7 @@ public class kadai5Test {
 		String actual = ie.TeensPlace(7);
 		assertThat(actual, is(expected));
 	}
-	
+
 
 	@Test
 	public void TensPlaceで7からseventy変換できる(){
@@ -89,7 +89,7 @@ public class kadai5Test {
 		String actual = ie.TensPlace(7);
 		assertThat(actual, is(expected));
 	}
-	
+
 
 	@Test
 	public void OnesPlaceで7からsevenに変換できる(){
@@ -99,8 +99,8 @@ public class kadai5Test {
 		assertThat(actual, is(expected));
 	}
 
-	
-	
+
+
 	}
 
 
